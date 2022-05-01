@@ -1,0 +1,45 @@
+@use '../../themes' as th;
+
+.Button{
+  border: none;
+  height: 48px;
+  font-size: 16px;
+  width: 220px;
+  background-color: th.$colorSecondary;
+  color: th.$colorPrimary;
+  border-radius:30px;
+  font-weight: 500;
+
+  display:inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  text-transform: uppercase;
+
+  &:hover{
+    transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0 3px 3px th.$colorTextPrimary);
+  }
+
+  &_nav{
+    width: 150px;
+
+    &:hover{
+      transition: all 0.3s ease-in-out;
+      filter: drop-shadow(0 3px 3px th.$colorBlack);
+    }
+  }
+
+  &_secondary{
+    background-color: th.$colorPrimary;
+    color: th.$colorSecondary;
+  }
+
+  &_outline {
+      border: 1px solid th.$colorPrimary;
+  }
+
+  &_heading {
+      width: 200px;
+  }
+}

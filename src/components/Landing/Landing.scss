@@ -1,0 +1,92 @@
+@use '../../themes' as th;
+
+.Landing{
+  height:100vh;
+  position: relative;
+
+  &-Img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+  }
+
+  &-Overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+
+  &-OverlayPrimary{
+    height: 100%;
+    width:27%;
+    position:absolute;
+    left:0;
+
+    background-color: #bf3939ef;
+
+  }
+
+  &-OverlaySecondary{
+    height:100%;
+    width:73%;
+    position:absolute;
+    right:0;
+
+    background: #000000ad;
+  }
+
+  &-Content{
+    position: absolute;
+    top: 0;
+    left: calc((100% - 1300px) / 2);
+    width: 1300px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
+  &-ContentInner{
+    margin: 0 auto;
+
+    @media (th.$tabletSmall){
+      width: 450px;
+    }
+
+    @media (th.$tablet){
+      width: 550px;
+    }
+
+    @media (th.$desktop){
+      width: 960px;
+    }
+
+    @media (th.$desktopLarge){
+      width: 1280px;
+    }
+  }
+
+  &-Title{
+    color: th.$colorSecondary;
+    font-size: 56px;
+    width: 550px;
+    margin-bottom: 24px;
+
+    @media (th.$tabletSmall){
+      width: 450px;
+      font-size: 56px;
+    }
+  }
+
+  &-Subtitle{
+    color: th.$colorSecondary;
+    font-size: 16px;
+    width: 440px;
+    margin-bottom: 48px;
+
+    @media (th.$tabletSmall){
+      font-size: 16;
+    }
+  }
+}

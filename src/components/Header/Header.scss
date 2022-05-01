@@ -1,0 +1,66 @@
+@use '../../themes' as th;
+
+.Header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    z-index: 2;
+
+    &-OverlaySecondary {
+        position:initial;
+        background-color: th.$colorTextPrimary;
+    }
+
+    &-Hamburger {
+        width: 30px;
+        height: auto;
+
+        @media (th.$desktop){ display: none; }
+
+        path{ fill: th.$colorSecondary; }
+    }
+
+    &-Inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (th.$desktop){
+            width: 960px;
+            margin: 0 auto;
+            padding: 32px 0;
+        }
+
+        @media (th.$desktopLarge){ width: 1260px; }
+    }
+
+    &-Logo { width: 140px; }
+
+    &-Nav {
+        display: none;
+
+        @media (th.$desktop){ display: block; }
+    }
+
+    &-NavLink {
+        color: th.$colorSecondary;
+        letter-spacing: 1px;
+        margin-right: 48px;
+        transition: text-shadow 0.3s ease-out;
+
+        &:hover {
+            text-shadow: 0.7px 0 0 th.$colorBgSecondary;
+        }
+    }
+
+    &-NavButton {
+      display: inline-block;
+      margin-right: 24px;
+
+      &:last-child {
+          margin-right: 0;
+      }
+    }
+}

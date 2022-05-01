@@ -1,0 +1,21 @@
+@use '../../themes' as th;
+
+.Grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 48px;
+
+    @media (th.$tabletSmall){
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 32px;
+    }
+
+    @media (th.$desktop){
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 48px;
+    }
+
+    @media (th.$desktopLarge){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
