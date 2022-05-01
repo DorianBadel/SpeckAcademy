@@ -16,6 +16,7 @@ import LectureImg4 from '../../assets/images/lecture-4.jpg';
 
 
 function Home(){
+    window.scrollTo(0, 0);
     return(
         <Main>
             <section>
@@ -25,6 +26,7 @@ function Home(){
             actionText={"Learn Something New"}
             title={"Open new possibilities"}
             buttonText={"More courses"}
+            linkTo ={"/courses"}
             >
             <Grid>
                 <CourseCard

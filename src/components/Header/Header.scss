@@ -19,7 +19,7 @@
 
         @media (th.$desktop){ display: none; }
 
-        path{ fill: th.$colorSecondary; }
+        path{ fill: th.$colorPrimary; }
     }
 
     &-Inner {
@@ -36,7 +36,19 @@
         @media (th.$desktopLarge){ width: 1260px; }
     }
 
-    &-Logo { width: 140px; }
+    &-Logo { width: 140px;}
+
+    &-LogoLink{
+        padding: 7px 20px 7px 20px;
+        background-color: th.$colorPrimary;
+        border-radius: 30px;
+
+        &.Header-Active{
+            padding: 0px;
+            background-color: #ffffff00;
+            border-radius: 0px;
+        }
+    }
 
     &-Nav {
         display: none;
@@ -53,6 +65,13 @@
         &:hover {
             text-shadow: 0.7px 0 0 th.$colorBgSecondary;
         }
+
+        &.Header-Active{
+            color: th.$colorPrimary;
+            border-color: th.$colorPrimary;
+
+        }
+        
     }
 
     &-NavButton {
@@ -63,4 +82,10 @@
           margin-right: 0;
       }
     }
+
+    &-Active{
+        border-style:  none none solid none ;
+        border-color: th.$colorSecondary;
+    }
 }
+

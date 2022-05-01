@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import Button from '../Button/Button';
 import './Section.scss';
 
@@ -8,6 +9,7 @@ const Section = ({
     title,
     buttonText,
     isHeadingVisible = true,
+    linkTo,
     children
 }) => {
     const modifierClasses = {
@@ -28,7 +30,7 @@ const Section = ({
                 {actionText && <span className="Section-ActionText">{actionText}</span>}
                 {isHeadingVisible && <div className="Section-Heading">
                     {title && <h2 className="Section-Title">{title}</h2>}
-                    {buttonText && <Button modifiers={['heading', 'outline']}>{buttonText}</Button>}
+                    {buttonText && <Link to={linkTo}><Button modifiers={['heading', 'outline']}>{buttonText}</Button></Link>}
                 </div>}
                 {children}
             </div>

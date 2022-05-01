@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+//Courses
 import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
 import Grid from '../../components/Grid/Grid';
@@ -14,12 +16,14 @@ import LectureImg5 from '../../assets/images/lecture-5.jpg';
 import LectureImg6 from '../../assets/images/lecture-6.jpg';
 
 function Courses(){
+    window.scrollTo(0, 0);
     return(
         <Main>
             <Section
             actionText={"Learn Something New"}
             title={"Open new possibilities"}
-            buttonText={"More courses"}
+            buttonText={"Back"}
+            linkTo={"/"}
             >
             <Grid>
                 <CourseCard

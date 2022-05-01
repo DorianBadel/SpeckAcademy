@@ -1,21 +1,23 @@
 import React from 'react'
+import "./Course.scss"
 
+//Components
 import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
 import SingleCourse from '../../components/SingleCourse/SingleCourse';
-import Grid from '../../components/Grid/Grid';
-import CourseCard from '../../components/CourseCard/CourseCard';
 
 //Images
 import LectureImg1 from '../../assets/images/lecture-1.jpg';
 
 function Course(){
+    window.scrollTo(0, 0);
     return(
         <Main>
             <Section
             actionText={"120+ Minutes"}
             title={"1. Introduction"}
             buttonText={"Back"}
+            linkTo={"/"}
             >
                 <SingleCourse
                     imgSrc={LectureImg1}
