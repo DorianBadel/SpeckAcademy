@@ -1,33 +1,63 @@
 import React from 'react'
 import "./Course.scss"
+import {useState, useEffect } from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom"
+import coursesMock from '../../lib/style/mock/courses';
 
 //Components
 import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
 import SingleCourse from '../../components/SingleCourse/SingleCourse';
+import Header from '../../components/Header/Header';
 
-//Images
-import LectureImg1 from '../../assets/images/lecture-1.jpg';
+
 
 function Course(){
+    const { id } = useParams();
+    const [courses, setCourses] = useState(null);
+    const [course, setCourse] = useState(null);
+    const location = new useLocation();
+    const navigate = new useNavigate();
+
+    useEffect(() => {
+        setCourses(coursesMock)
+
+    },[]);
+
+    useEffect(() => {
+        courses && setCourse(...courses.filter(course => course.id === parseInt(id)));
+
+    },[courses, id]);
+
+    const handleButtonClick = () => {
+        if(location.pathname.includes("/course/")) navigate(-1);
+        if(location.pathname === "/") navigate("/courses");
+
+    }
+
     window.scrollTo(0, 0);
     return(
         <Main>
-            <Section
-            actionText={"120+ Minutes"}
-            title={"1. Introduction"}
-            buttonText={"Back"}
-            linkTo={"/"}
-            >
-                <SingleCourse
-                    imgSrc={LectureImg1}
-                    imgAl={'Introduction'}
-                    text={
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum bibendum velit, nec ultricies ante aliquam nec. Pellentesque elit massa, rutrum ac dapibus non, pharetra eget dolor. Aliquam erat volutpat. Fusce interdum nibh mi, vel accumsan lectus commodo quis. Etiam sagittis vel metus a vehicula. Nunc tincidunt sodales dui non pulvinar. In hac habitasse platea dictumst. Pellentesque imperdiet nisl quis consequat gravida. Morbi facilisis eleifend consectetur. Praesent at enim sed velit commodo euismod fermentum pulvinar felis. Nullam sit amet fringilla dolor, non fringilla lacus. Mauris rhoncus a eros non iaculis. Phasellus interdum ultrices nisi id efficitur. Nullam malesuada commodo dolor. Suspendisse et vulputate libero. Phasellus tincidunt metus id nunc condimentum, et elementum enim accumsan. Praesent condimentum urna sapien, ultrices sagittis neque efficitur non. Quisque sagittis convallis lectus, id lobortis massa. Morbi ac posuere velit. Mauris rhoncus, sem nec interdum vehicula, arcu nibh ultrices risus, sed pellentesque enim libero eget nisi. Sed sed pulvinar risus. Nulla facilisi. Integer vel tempor felis, non viverra arcu. Pellentesque sed fringilla justo, a volutpat nisl. Nulla facilisi. Ut et hendrerit eros, eget dapibus leo. Curabitur at condimentum libero, vehicula porta mauris. Quisque volutpat ut nisi ut porta.Proin vestibulum auctor justo vel blandit. Curabitur sit amet purus nec dolor lacinia placerat ut id est. Morbi eget auctor diam. Pellentesque viverra mi eget tellus sollicitudin elementum. Vestibulum molestie purus sit amet nisl volutpat vulputate. Nullam tempor sit amet nibh eu accumsan. Morbi a vulputate massa, a tristique eros. Sed et nisl vitae metus lacinia luctus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis semper dui sed nulla luctus cursus. Donec ac bibendum urna. Cras vitae dolor in dui efficitur elementum. Curabitur varius orci ac nibh molestie, bibendum bibendum velit accumsan. Proin dolor ex, sagittis sodales erat id, posuere cursus nibh. Donec at blandit libero. Aenean non dui vitae enim tincidunt imperdiet in eu dolor.'
-                    }
-                />
+            <Header isSecondary={true}/>
 
-            </Section>
+            {course && (
+                <Section
+                    title={course.title}
+                    actionText={course.sub}
+                    buttonText={"Back"}
+                    linkTo={"/"}
+                    callback={handleButtonClick}
+                >
+                    <SingleCourse
+                        imgSrc={course.imgSrc}
+                        imgAl={course.imgAlt}
+                        text={course.text}
+                    />
+    
+                </Section>
+
+            )}
+            
 
         </Main>
     )

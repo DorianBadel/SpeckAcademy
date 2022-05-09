@@ -3,7 +3,8 @@ import './Button.scss';
 
 const Button = ({
   modifiers,
-  children
+  children,
+  onClick
 }) => {
   const modifierClasses = {
         secondary: 'Button_secondary',
@@ -18,7 +19,7 @@ const Button = ({
   modifiers.map(modifier => (buttonClass += " " + modifierClasses[modifier]));
 
   return (
-    <button className={buttonClass}> {children} </button>
+    <button className={buttonClass} onClick={onClick}> {children} </button>
   );
 };
 

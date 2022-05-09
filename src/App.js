@@ -11,10 +11,10 @@ import Header from "./components/Header/Header";
 function App() {
   return (
     <Router>
-      <Header/>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/courses" element={<Courses/>} />
+        <Route path="/course/:id" element = {<Course/>}/>
         <Route path="/course" element={<Course/>} />
       </Routes>
     </Router>

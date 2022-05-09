@@ -10,7 +10,8 @@ const Section = ({
     buttonText,
     isHeadingVisible = true,
     linkTo,
-    children
+    children,
+    callback
 }) => {
     const modifierClasses = {
         testimonials: 'Section_testimonials'
@@ -30,7 +31,7 @@ const Section = ({
                 {actionText && <span className="Section-ActionText">{actionText}</span>}
                 {isHeadingVisible && <div className="Section-Heading">
                     {title && <h2 className="Section-Title">{title}</h2>}
-                    {buttonText && <Link to={linkTo}><Button modifiers={['heading', 'outline']}>{buttonText}</Button></Link>}
+                    {buttonText && <Link to={linkTo}><Button modifiers={['heading', 'outline']} onClick={callback}>{buttonText}</Button></Link>}
                 </div>}
                 {children}
             </div>
