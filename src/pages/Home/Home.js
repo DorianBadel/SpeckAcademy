@@ -9,21 +9,12 @@ import Loader from '../../components/Loader/Loader';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import Testimonial from '../../components/Testimonial/Testimonial';
 import Header from '../../components/Header/Header';
-import SearchBar from '../../components/SearchBar/SearchBar';
 
 import {Grid} from "../../lib/style/generalStyles";
 import coursesMock from '../../lib/style/mock/courses';
 
 
 function Home(){
-    
-
-    const [searchInput, setSearchInput] = useState("");
-
-    const handleChange = (e) => {
-        setSearchInput(e);
-    };
-
     const [courses, setCourses] = useState(null); 
     
     useEffect(() => {
@@ -50,17 +41,12 @@ function Home(){
             linkTo ={"/courses"}
             >
 
-                <SearchBar 
-                onValueChange={handleChange}
-                placeholder={"Search ..."}
-                disabledState={courses ? false : true}
-                value={searchInput}
-                />
+                
 
                 {courses ?
                 <Grid>
                     {
-                    courses.filter((found) => { return found.title.toLowerCase().match(searchInput.toLowerCase())}).map((course, index) => index <= 3 && 
+                    courses.map((course, index) => index <= 3 && 
                     <CourseCard
                         key = {course.id}
                         courseId = {course.id}
