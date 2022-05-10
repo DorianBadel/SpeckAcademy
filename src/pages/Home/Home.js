@@ -1,41 +1,45 @@
-import React, { useState } from 'react';
-import {useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 //Components
 import Landing from '../../components/Landing/Landing';
 import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
+import Loader from '../../components/Loader/Loader';
 
 import CourseCard from '../../components/CourseCard/CourseCard';
 import Testimonial from '../../components/Testimonial/Testimonial';
 import Header from '../../components/Header/Header';
-import {Grid} from "../../lib/style/generalStyles";
-
-import coursesMock from '../../lib/style/mock/courses';
 import SearchBar from '../../components/SearchBar/SearchBar';
+
+import {Grid} from "../../lib/style/generalStyles";
+import coursesMock from '../../lib/style/mock/courses';
 
 
 function Home(){
-    const [courses, setCourses] = useState(null);  
     
-    useEffect(() => {
-        setTimeout(() => {
-            setCourses(coursesMock);
-        }, 1000)
-    }, [])
 
     const [searchInput, setSearchInput] = useState("");
 
     const handleChange = (e) => {
-        //e.preventDefault();
         setSearchInput(e);
-        console.log(e);
     };
+
+    const [courses, setCourses] = useState(null); 
+    
+    useEffect(() => {
+        
+        setTimeout(() => {
+            
+            setCourses(coursesMock);
+
+        }, 1000)
+    }, [])
 
     //window.scrollTo(0, 0);
     return(
         <Main>
             <Header/>
+            
             <section>
             <Landing/>
             </section>
@@ -48,12 +52,15 @@ function Home(){
 
                 <SearchBar 
                 onValueChange={handleChange}
-                placeholder={"ph"}
-                disabledState={false}
+                placeholder={"Search ..."}
+                disabledState={courses ? false : true}
+                value={searchInput}
                 />
 
-                {courses && <Grid>
-                    {courses.map((course, index) => index <= 3 && 
+                {courses ?
+                <Grid>
+                    {
+                    courses.filter((found) => { return found.title.toLowerCase().match(searchInput.toLowerCase())}).map((course, index) => index <= 3 && 
                     <CourseCard
                         key = {course.id}
                         courseId = {course.id}
@@ -63,7 +70,7 @@ function Home(){
                         subtitle={course.subtitle}
                     />
                     )}
-                </Grid>}
+                </Grid> : <Loader/>}
 
             </Section>
             <Section modifiers={["Testimonials"]} isHeadingVisible={false}>

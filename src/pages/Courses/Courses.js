@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import {useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 
 //Components
@@ -7,9 +6,10 @@ import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
 import CourseCard from '../../components/CourseCard/CourseCard';
 import Header from '../../components/Header/Header';
-import {Grid} from "../../lib/style/generalStyles";
+import Loader from '../../components/Loader/Loader';
 
-import coursesMock from '../../lib/style/mock/courses'
+import coursesMock from '../../lib/style/mock/courses';
+import {Grid} from "../../lib/style/generalStyles";
 
 //3:01:57
 function Courses(){
@@ -31,7 +31,7 @@ function Courses(){
             buttonText={"Back"}
             linkTo={"/"}
             >
-                {courses && <Grid>
+                {courses ? <Grid>
                     {courses.map((course,index) => 
                     <CourseCard
                         key = {course.id}
@@ -43,7 +43,7 @@ function Courses(){
                     />)}
                 
                 
-                </Grid>}
+                </Grid> : <Loader/>}
             
 
             </Section>

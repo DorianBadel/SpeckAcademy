@@ -94,11 +94,13 @@ export const HeaderNavLink = styled(NavLink)`
         background-color: transparent;
         position: relative;
         cursor: pointer;
+
+        &:hover {
+            text-shadow: 0.7px 0 0 ${colors.bgSecondary};
+        }
     }
 
-    &:hover {
-        text-shadow: 0.7px 0 0 ${colors.bgSecondary};
-    }
+    
 
     &.Header-Active{
         color: ${colors.primary};
@@ -118,10 +120,15 @@ export const ButtonLink = styled(Link)`
 
     & .Button{
         
-
         @media (${breakpoints.maxDesktop}){ 
             color: ${colors.secondary};
             background-color: ${colors.overlaySecondary};
+
+            &:Hover{
+                background-color: ${colors.primary};
+                transition: all 0.4s ease-in-out;
+                filter: drop-shadow(0 0px 0px transparent);
+            }
         }
     }
     
