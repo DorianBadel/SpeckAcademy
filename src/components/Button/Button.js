@@ -4,7 +4,8 @@ import './Button.scss';
 const Button = ({
   modifiers,
   children,
-  onClick
+  onClick,
+  isMobile
 }) => {
   const modifierClasses = {
         secondary: 'Button_secondary',
@@ -19,7 +20,7 @@ const Button = ({
   modifiers.map(modifier => (buttonClass += " " + modifierClasses[modifier]));
 
   return (
-    <button className={buttonClass} onClick={onClick}> {children} </button>
+    <button className={buttonClass} onClick={() => isMobile && onClick}> {children} </button>
   );
 };
 

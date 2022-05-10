@@ -48,25 +48,53 @@ export const Hamburger = styled(HamburgerIcon)`
     @media (${breakpoints.desktop}){ display: none; }
 
     path{ fill: ${colors.bgPrimary}; }
+
+    
 `;
 
 export const Nav = styled.nav`
-    display: none;
+    //display: none;
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 80px;
+    right: 0px;
+    width: 100%;
+    border-top: 2px solid ${colors.bgPrimary};
+    text-align: center;
 
     @media (${breakpoints.desktop}){ 
         display: inline-flex;
+        flex-direction: initial;
         align-items: center;
+        top: 50px;
+
+        right: 30px;
+
+        width: auto;
+        background: none;
+        border-top: none;
+        text-align: left;
     }
 
 `;
 
 export const HeaderNavLink = styled(NavLink)`
     color: ${colors.secondary};
-    letter-spacing: 1px;
-    margin-right: 48px;
-    transition: text-shadow 0.3s ease-out;
-    position: relative;
-    cursor: pointer;
+    padding: 10px;
+    background-color: ${colors.overlaySecondary};
+    
+
+    @media (${breakpoints.desktop}){ 
+        padding: 0px;
+        letter-spacing: 1px;
+        margin-right: 48px;
+        transition: text-shadow 0.3s ease-out;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+    }
 
     &:hover {
         text-shadow: 0.7px 0 0 ${colors.bgSecondary};
@@ -80,8 +108,23 @@ export const HeaderNavLink = styled(NavLink)`
 `;
 
 export const ButtonLink = styled(Link)`
-    display: inline-block;
-    margin-right: 24px;
+    border-radius: 0px;
+    background-color: transparent;
+
+    @media (${breakpoints.desktop}){ 
+        display: inline-block;
+        margin-right: 24px;
+    }
+
+    & .Button{
+        
+
+        @media (${breakpoints.maxDesktop}){ 
+            color: ${colors.secondary};
+            background-color: ${colors.overlaySecondary};
+        }
+    }
+    
 
     &:last-child {
         margin-right: 0;

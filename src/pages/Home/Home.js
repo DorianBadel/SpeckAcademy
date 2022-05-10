@@ -12,6 +12,7 @@ import Header from '../../components/Header/Header';
 import {Grid} from "../../lib/style/generalStyles";
 
 import coursesMock from '../../lib/style/mock/courses';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 
 function Home(){
@@ -23,8 +24,15 @@ function Home(){
         }, 1000)
     }, [])
 
+    const [searchInput, setSearchInput] = useState("");
 
-    window.scrollTo(0, 0);
+    const handleChange = (e) => {
+        //e.preventDefault();
+        setSearchInput(e);
+        console.log(e);
+    };
+
+    //window.scrollTo(0, 0);
     return(
         <Main>
             <Header/>
@@ -37,6 +45,13 @@ function Home(){
             buttonText={"More courses"}
             linkTo ={"/courses"}
             >
+
+                <SearchBar 
+                onValueChange={handleChange}
+                placeholder={"ph"}
+                disabledState={false}
+                />
+
                 {courses && <Grid>
                     {courses.map((course, index) => index <= 3 && 
                     <CourseCard

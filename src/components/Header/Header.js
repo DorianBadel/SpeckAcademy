@@ -1,6 +1,4 @@
-import React from 'react';
-import './Header.scss';
-import {NavLink} from "react-router-dom";
+import React, {useState} from 'react';
 import {
   Header as HeaderWrapper, 
   HeaderInner, 
@@ -18,24 +16,46 @@ import Button from "../Button/Button"
 
 
 const Header = ({ isSecondary }) => {
+
+  const [navOpen, openTheNav] = useState(true);
+  
+  window.addEventListener('load', function (){
+    widthCheck();
+  });
+
+  window.addEventListener('resize', function (){
+    widthCheck();    
+  });
+
+  function widthCheck(){
+    if(window.innerWidth > 1024) openTheNav(navOpen => true);
+    else openTheNav(navOpen => false);
+  }
+
+
+
+
   return(
     <HeaderWrapper isSecondary={isSecondary}>
       <HeaderInner>
         <LogoLink to="/">
           <LogoElement src={LogoImg} alt="Academy logo"/>
         </LogoLink>
-        <Hamburger />
-        <Nav>
-          <HeaderNavLink to="/courses">
-            Courses
-          </HeaderNavLink>
-          <ButtonLink to="/">
-            <Button modifiers={['nav']}> Sign in </Button>
-          </ButtonLink>
-          <ButtonLink to="/">
-            <Button modifiers={['nav','secondary']}> Register </Button>
-          </ButtonLink>
-        </Nav>
+        <Hamburger
+        onClick={() => openTheNav(!navOpen)} />
+        {navOpen  &&
+          <Nav>
+            <HeaderNavLink to="/courses" >
+              Courses
+            </HeaderNavLink>
+            <ButtonLink to="/" >
+              <Button modifiers={['nav']}  > Sign in </Button>
+            </ButtonLink>
+            <ButtonLink to="/">
+              <Button modifiers={['nav','secondary']}> Register </Button>
+            </ButtonLink>
+          </Nav> 
+        }
       </HeaderInner>
     </HeaderWrapper>
   );
