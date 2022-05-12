@@ -1,7 +1,14 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import Button from '../Button/Button';
-import './Section.scss';
+import {
+    Section as SectionWrap, 
+    SectionInner, 
+    SectionActionText, 
+    SectionHeading, 
+    SectionTitleH1,
+    SectionTitleH2
+} from "./SectionStyle"
 
 const Section = ({
     modifiers,
@@ -11,7 +18,9 @@ const Section = ({
     isHeadingVisible = true,
     linkTo,
     children,
-    callback
+    callback,
+    isMainSection = false,
+    isCentered = false
 }) => {
     const modifierClasses = {
         testimonials: 'Section_testimonials'
@@ -26,16 +35,18 @@ const Section = ({
     }
 
     return (
-        <section className={sectionClass}>
-            <div className="Section-Inner">
-                {actionText && <span className="Section-ActionText">{actionText}</span>}
-                {isHeadingVisible && <div className="Section-Heading">
-                    {title && <h2 className="Section-Title">{title}</h2>}
-                    {buttonText && <Link to={linkTo}><Button modifiers={['heading', 'outline']} onClick={callback}>{buttonText}</Button></Link>}
-                </div>}
+        <SectionWrap>
+            <SectionInner>
+                {actionText && <SectionActionText>{actionText}</SectionActionText>}
+                {isHeadingVisible && <SectionHeading>
+                    {title && (isMainSection ? (
+                    <SectionTitleH1 isCentered={isCentered}>{title}</SectionTitleH1> ):( 
+                    <SectionTitleH2 isCentered={isCentered}>{title}</SectionTitleH2>))}
+                    {buttonText && <Link to={linkTo}><Button isHeading isOutlined onClick={callback}>{buttonText}</Button></Link>}
+                </SectionHeading>}
                 {children}
-            </div>
-        </section>
+            </SectionInner>
+        </SectionWrap>
     );
 }
 

@@ -28,8 +28,8 @@ const Header = ({ isSecondary }) => {
   });
 
   function widthCheck(){
-    if(window.innerWidth > 1024) openTheNav(true);
-    else openTheNav(false);
+    if(window.innerWidth > 1024){openTheNav(true); return true;}
+    else{ openTheNav(false); return false; }
   }
 
 
@@ -48,11 +48,11 @@ const Header = ({ isSecondary }) => {
             <HeaderNavLink to="/courses" >
               Courses
             </HeaderNavLink>
-            <ButtonLink to="/" >
-              <Button modifiers={['nav']} isMobile={true} doStuff={widthCheck}> Sign in </Button>
+            <ButtonLink to="/sign-in" >
+              <Button isNav> Sign in </Button>
             </ButtonLink>
-            <ButtonLink to="/">
-              <Button modifiers={['nav','secondary']} isMobile={true} doStuff={widthCheck}> Register </Button>
+            <ButtonLink to="/register">
+              <Button isNav isSecondary doStuff={widthCheck}> Register </Button>
             </ButtonLink>
           </Nav> 
         }
