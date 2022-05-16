@@ -2,10 +2,12 @@ import React from 'react'
 import Main from '../../components/Main/Main'
 import Header from '../../components/Header/Header'
 import Section from '../../components/Section/Section'
+import { Button } from '../../components/Button/ButtonStyle'
+
 import{ Form, Field, FormRow, Select, Option, ErrorMessage} from "../../lib/style/generalStyles"
 import {Formik, yupToFormErrors} from "formik";
 import * as Yup from "yup";
-import { Button } from '../../components/Button/ButtonStyle'
+
 
 const Register = () => {
   return (
@@ -67,6 +69,10 @@ const Register = () => {
                   <ErrorMessage component={"div"} name="lastName"/>
                 </FormRow>
                 <FormRow>
+                  <Field type="email" name="email" placeholder="email ..." disabled={formik.isSubmitting}/>
+                  <ErrorMessage component={"div"} name="email"/>
+                </FormRow>
+                <FormRow>
                   <Field type="password" name="password" placeholder="Password ..." disabled={formik.isSubmitting}/>
                   <ErrorMessage component={"div"} name="password"/>
                 </FormRow>
@@ -110,4 +116,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Register;

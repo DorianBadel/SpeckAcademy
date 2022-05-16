@@ -30,12 +30,23 @@ export const Form = styled(FormFormik)`
         ${props => props.isCentered !== false && `
             margin: 0 auto;
         `}
+
+
     }
+
+    ${props => props.isHideable == true && `
+            font-size: 20px;
+            background-color: ${colors.bgSecondary};
+            padding: 20px;
+            border-radius: 10px;
+            height: 160px;
+            font-family: ${fonts.secondary}
+    `}
 `;
 
 export const FormRow = styled.div`
     margin-bottom: 32px;
-    
+
     &:last-child{
         margin-bottom: 0;
     }
@@ -63,7 +74,6 @@ const FieldStyle = css`
 
 export const Field = styled(FieldFormik)`
     ${FieldStyle};
-
 `;
 
 export const Select = styled.select`
