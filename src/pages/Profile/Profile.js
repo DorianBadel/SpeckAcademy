@@ -16,7 +16,7 @@ const Profile = () => {
     <Main>
         <Header isSecondary={true}/>
         <Section title={"My profile"} isMainSection isCentered={false}
-            buttonText={"Edit"}
+            buttonText={!editing ? "Edit" : "Cancel"}
             linkTo ={"#"}
             callback={() => setEditing(!editing)}
         >
@@ -107,6 +107,14 @@ const Profile = () => {
                         </Select>
                         <ErrorMessage component={"div"} name="activeFacultyYear"/>
                         </FormRow>
+                        {editing &&
+                          <FormRow>
+                            <Button isOutlined issForm disabled={formik.isSubmitting}>
+                              {formik.isSubmitting ? "Processing..." : "Save changes" }
+                            </Button>
+                          </FormRow>
+                        }
+
                     </Form>
 
                     <Form isCentered={false} isHideable>
@@ -125,6 +133,11 @@ const Profile = () => {
                             <Field type="password" name="passwordConfirmed" placeholder="Confirmed password ..." disabled={formik.isSubmitting}/>
                             <ErrorMessage component={"div"} name="passwordConfirmed"/>
                         </FormRow>
+                          <FormRow>
+                            <Button isOutlined issForm disabled={formik.isSubmitting}>
+                              {formik.isSubmitting ? "Processing..." : "Change Password" }
+                            </Button>
+                          </FormRow>
                         </>
                          : <p>In order to reset password click on Edit button</p>
                          }

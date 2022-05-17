@@ -39,7 +39,7 @@ export const Form = styled(FormFormik)`
             background-color: ${colors.bgSecondary};
             padding: 20px;
             border-radius: 10px;
-            height: 160px;
+            height: 30%;
             font-family: ${fonts.secondary}
     `}
 `;
