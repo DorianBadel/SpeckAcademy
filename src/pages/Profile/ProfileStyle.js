@@ -29,3 +29,21 @@ export const Strong = styled.p`
     padding-bottom: 20px;
     font-weight: 900;
 `;
+
+export const PasswordReset = styled.div`
+    font-size: 20px;
+    width: 450px;
+    background-color: ${colors.bgSecondary};
+    padding: 20px;
+    border-radius: 10px;
+    height: 30%;
+    font-family: ${fonts.secondary}
+
+    ${props => props.isOpened == true && `
+            width: auto;
+            font-size: 20px; //zbog nekog razloga ako izbrisem font-size height vise ne radi ?
+            height: 60%;
+
+            font-family: ${fonts.secondary}
+    `}
+`;

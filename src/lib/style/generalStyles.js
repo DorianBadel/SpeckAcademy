@@ -34,13 +34,8 @@ export const Form = styled(FormFormik)`
 
     }
 
-    ${props => props.isHideable == true && `
-            font-size: 20px;
-            background-color: ${colors.bgSecondary};
+    ${props => props.isHideable === true && `
             padding: 20px;
-            border-radius: 10px;
-            height: 30%;
-            font-family: ${fonts.secondary}
     `}
 `;
 
@@ -88,3 +83,7 @@ export const ErrorMessage = styled(ErrorMessageFormik)`
     padding-top: 8px;
 
 `;
+
+export const InputLabel = styled.label`
+
+`
