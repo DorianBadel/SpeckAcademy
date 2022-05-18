@@ -19,26 +19,32 @@ const Header = ({ isSecondary }) => {
 
   const [navOpen, openTheNav] = useState(false);
 
+  function checkIfIsActive(to){
+    if(window.location.pathname === to){
+      return true;
+    } else return false;
+  }
+
   return(
     <HeaderWrapper isSecondary={isSecondary}>
       <HeaderInner>
-        <LogoLink to="/">
+        <LogoLink to="/" isHeaderActive={checkIfIsActive("/")}>
           <LogoElement src={LogoImg} alt="Academy logo"/>
         </LogoLink>
         <Hamburger
         onClick={() => openTheNav(!navOpen)} />
         <Nav isMobile={navOpen}>
-            <HeaderNavLink to="/courses" >
+            <HeaderNavLink to="/courses" isActive={checkIfIsActive("/courses")}>
               Courses
             </HeaderNavLink>
-            <HeaderNavLink to="/profile">
+            <HeaderNavLink to="/profile" isActive={checkIfIsActive("/profile")}>
               Profile
             </HeaderNavLink>
-            <ButtonLink to="/sign-in">
+            <ButtonLink to="/sign-in" isActive={checkIfIsActive("/sign-in")}>
               <Button isNav > Sign in </Button>
             </ButtonLink>
-            <ButtonLink to="/register">
-              <Button isNav isSecondary > Register </Button>
+            <ButtonLink to="/register" isActive={checkIfIsActive("/register")}>
+              <Button isNav isSecondary  > Register </Button>
             </ButtonLink>
           </Nav>
       </HeaderInner>

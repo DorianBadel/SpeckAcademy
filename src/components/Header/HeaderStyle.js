@@ -34,7 +34,14 @@ export const HeaderInner = styled.div`
 
         @media (${breakpoints.desktopLarge}){ width: 1270px; }
 `;
-export const LogoLink = styled(Link)``;
+export const LogoLink = styled(Link)`
+
+    ${props => props.isHeaderActive == true &&`
+        display: block;
+        padding: 5px;
+        border-bottom: 5px solid ${colors.secondary};
+    `}
+`;
 
 
 export const LogoImg = styled.img`
@@ -109,11 +116,20 @@ export const HeaderNavLink = styled(NavLink)`
           background-color: transparent;
           text-shadow: 0.7px 0 0 ${colors.bgSecondary};
       }
-      ${props => props.isHeaderActive == true &&`
-          color: ${colors.primary};
-          border-color: ${colors.primary};
+
+      ${props => props.isActive == true &&`
+          color: ${colors.secondary};
+          border-style:  none none solid none ;
+          border-color: th.$colorSecondary;
       `}
     }
+
+    ${props => props.isActive == true &&`
+        color: ${colors.primary};
+        font-weight: 700;
+    `}
+
+
 `;
 
 export const ButtonLink = styled(Link)`
@@ -126,8 +142,15 @@ export const ButtonLink = styled(Link)`
             background-color: ${colors.overlayPrimary};
           }
         }
+
+      ${props => props.isActive == true &&`
+        & button{
+          color: ${colors.primary};
+          font-weight: 700;
+        }
+      `}
     }
-    
+
     @media (${breakpoints.desktop}){
       display: inline-block;
       margin-right: 24px;
@@ -136,12 +159,15 @@ export const ButtonLink = styled(Link)`
       &:last-child {
           margin-right: 0;
       }
+
+      ${props => props.isActive == true &&`
+        & button{
+          filter: drop-shadow(0 7px 3px ${colors.black});
+        }
+      `}
     }
 
-    ${props => props.isActive == true &&`
-        border-style:  none none solid none ;
-        border-color: th.$colorSecondary;
-    `}
+
 `;
 
 
