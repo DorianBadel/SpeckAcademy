@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {
-  Header as HeaderWrapper, 
-  HeaderInner, 
-  LogoLink, 
-  LogoImg as LogoElement, 
-  Hamburger, 
-  Nav, 
-  HeaderNavLink, 
-  ButtonLink
+  Header as HeaderWrapper,
+  HeaderInner,
+  LogoLink,
+  LogoImg as LogoElement,
+  Hamburger,
+  Nav,
+  HeaderNavLink,
+  ButtonLink,
 } from "./HeaderStyle";
 
 import LogoImg from "../../assets/images/logo.svg"
@@ -17,23 +17,7 @@ import Button from "../Button/Button"
 
 const Header = ({ isSecondary }) => {
 
-  const [navOpen, openTheNav] = useState(true);
-  
-  window.addEventListener('load', function (){
-    widthCheck();
-  });
-
-  window.addEventListener('resize', function (){
-    widthCheck();    
-  });
-
-  function widthCheck(){
-    if(window.innerWidth > 1024){openTheNav(true); return true;}
-    else{ openTheNav(false); return false; }
-  }
-
-
-
+  const [navOpen, openTheNav] = useState(false);
 
   return(
     <HeaderWrapper isSecondary={isSecondary}>
@@ -43,22 +27,20 @@ const Header = ({ isSecondary }) => {
         </LogoLink>
         <Hamburger
         onClick={() => openTheNav(!navOpen)} />
-        {navOpen  &&
-          <Nav>
+        <Nav isMobile={navOpen}>
             <HeaderNavLink to="/courses" >
               Courses
             </HeaderNavLink>
             <HeaderNavLink to="/profile">
               Profile
             </HeaderNavLink>
-            <ButtonLink to="/sign-in" >
-              <Button isNav> Sign in </Button>
+            <ButtonLink to="/sign-in">
+              <Button isNav > Sign in </Button>
             </ButtonLink>
             <ButtonLink to="/register">
-              <Button isNav isSecondary doStuff={widthCheck}> Register </Button>
+              <Button isNav isSecondary > Register </Button>
             </ButtonLink>
-          </Nav> 
-        }
+          </Nav>
       </HeaderInner>
     </HeaderWrapper>
   );

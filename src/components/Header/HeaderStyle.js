@@ -49,22 +49,26 @@ export const Hamburger = styled(HamburgerIcon)`
 
     path{ fill: ${colors.bgPrimary}; }
 
-    
+
 `;
 
 export const Nav = styled.nav`
-    //display: none;
-    display: flex;
-    flex-direction: column;
+    display: none;
 
-    position: absolute;
-    top: 80px;
-    right: 0px;
-    width: 100%;
-    border-top: 2px solid ${colors.bgPrimary};
-    text-align: center;
 
-    @media (${breakpoints.desktop}){ 
+    ${props => props.isMobile == true && `
+      display: flex;
+      flex-direction: column;
+
+      position: absolute;
+      top: 80px;
+      right: 0px;
+      width: 100%;
+      border-top: 2px solid ${colors.bgPrimary};
+      text-align: center;
+    `}
+
+    @media (${breakpoints.desktop}){
         display: inline-flex;
         flex-direction: initial;
         align-items: center;
@@ -84,58 +88,60 @@ export const HeaderNavLink = styled(NavLink)`
     color: ${colors.secondary};
     padding: 10px;
     background-color: ${colors.overlaySecondary};
-    
+    transition: all 0.3s ease-in-out;
 
-    @media (${breakpoints.desktop}){ 
-        padding: 0px;
-        letter-spacing: 1px;
-        margin-right: 48px;
-        transition: text-shadow 0.3s ease-out;
-        background-color: transparent;
-        position: relative;
-        cursor: pointer;
+    &:hover{
+      background-color: ${colors.overlayPrimary};
+      filter: drop-shadow(0 3px 3px ${colors.textPrimary});
 
-        &:hover {
-            text-shadow: 0.7px 0 0 ${colors.bgSecondary};
-        }
     }
 
-    
+    @media (${breakpoints.desktop}){
+      padding: 0px;
+      letter-spacing: 1px;
+      margin-right: 48px;
+      transition: text-shadow 0.3s ease-out;
+      background-color: transparent;
+      position: relative;
+      cursor: pointer;
 
-    &.Header-Active{
-        color: ${colors.primary};
-        border-color: ${colors.primary};
-
+      &:hover {
+          background-color: transparent;
+          text-shadow: 0.7px 0 0 ${colors.bgSecondary};
+      }
+      ${props => props.isHeaderActive == true &&`
+          color: ${colors.primary};
+          border-color: ${colors.primary};
+      `}
     }
 `;
 
 export const ButtonLink = styled(Link)`
-    border-radius: 0px;
-    background-color: transparent;
+    @media(${breakpoints.maxDesktop}){
+      & button{
+        background-color: ${colors.overlaySecondary};
+        color: ${colors.secondary};
 
-    @media (${breakpoints.desktop}){ 
-        display: inline-block;
-        margin-right: 24px;
-    }
-
-    & .Button{
-        
-        @media (${breakpoints.maxDesktop}){ 
-            color: ${colors.secondary};
-            background-color: ${colors.overlaySecondary};
-
-            &:Hover{
-                background-color: ${colors.primary};
-                transition: all 0.4s ease-in-out;
-                filter: drop-shadow(0 0px 0px transparent);
-            }
+          &:hover{
+            background-color: ${colors.overlayPrimary};
+          }
         }
     }
     
+    @media (${breakpoints.desktop}){
+      display: inline-block;
+      margin-right: 24px;
 
-    &:last-child {
-        margin-right: 0;
+
+      &:last-child {
+          margin-right: 0;
+      }
     }
+
+    ${props => props.isActive == true &&`
+        border-style:  none none solid none ;
+        border-color: th.$colorSecondary;
+    `}
 `;
 
 
@@ -148,6 +154,18 @@ export const ButtonLink = styled(Link)`
         padding: 0px;
         background-color: #ffffff00;
         border-radius: 0px;
+    }
+
+/////////////////////////////////////////////////
+    @media (${breakpoints.maxDesktop}){
+        color: ${colors.secondary};
+        background-color: ${colors.overlaySecondary};
+
+        &:Hover{
+            background-color: ${colors.primary};
+            transition: all 0.4s ease-in-out;
+            filter: drop-shadow(0 0px 0px transparent);
+        }
     }
 }*/
 

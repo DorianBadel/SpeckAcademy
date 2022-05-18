@@ -21,7 +21,7 @@ export const Button = styled.button`
         transition: all 0.3s ease-in-out;
         filter: drop-shadow(0 3px 3px ${colors.textPrimary});
     }
-    
+
 
     ${(props) => props.isNav &&`
         width: 100%;
@@ -29,10 +29,10 @@ export const Button = styled.button`
         text-transform: none;
 
         @media(${breakpoints.desktop}){
-        border-radius: 30px;
-        text-transform: uppercase;
-        width: 150px;
-        
+          border-radius: 30px;
+          text-transform: uppercase;
+          width: 150px;
+
         }
 
         &:hover{
