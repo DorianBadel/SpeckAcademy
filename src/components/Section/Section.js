@@ -1,11 +1,15 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+
+//Components
 import Button from '../Button/Button';
+
+//Styled
 import {
-    Section as SectionWrap, 
-    SectionInner, 
-    SectionActionText, 
-    SectionHeading, 
+    Section as SectionWrap,
+    SectionInner,
+    SectionActionText,
+    SectionHeading,
     SectionTitleH1,
     SectionTitleH2
 } from "./SectionStyle"
@@ -40,7 +44,7 @@ const Section = ({
                 {actionText && <SectionActionText>{actionText}</SectionActionText>}
                 {isHeadingVisible && <SectionHeading>
                     {title && (isMainSection ? (
-                    <SectionTitleH1 isCentered={isCentered}>{title}</SectionTitleH1> ):( 
+                    <SectionTitleH1 isCentered={isCentered}>{title}</SectionTitleH1> ):(
                     <SectionTitleH2 isCentered={isCentered}>{title}</SectionTitleH2>))}
                     {buttonText && <Link to={linkTo}><Button isHeading isOutlined onClick={callback}>{buttonText}</Button></Link>}
                 </SectionHeading>}

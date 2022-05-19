@@ -8,10 +8,10 @@ import Header from '../../components/Header/Header';
 import Loader from '../../components/Loader/Loader';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
+//Lib
 import coursesMock from '../../lib/style/mock/courses';
 import {Grid} from "../../lib/style/generalStyles";
 
-//3:01:57
 function Courses(){
     const [searchInput, setSearchInput] = useState("");
 
@@ -38,7 +38,7 @@ function Courses(){
             linkTo={"/"}
             >
 
-            <SearchBar 
+            <SearchBar
                 onValueChange={handleChange}
                 placeholder={"Search ..."}
                 disabledState={courses ? false : true}
@@ -46,7 +46,7 @@ function Courses(){
             />
 
             {courses ? <Grid>
-                {courses.filter((found) => { return found.title.toLowerCase().match(searchInput.toLowerCase())}).map((course,index) => 
+                {courses.filter((found) => { return found.title.toLowerCase().match(searchInput.toLowerCase())}).map((course,index) =>
                 <CourseCard
                     key = {course.id}
                     courseId = {course.id}
@@ -55,10 +55,10 @@ function Courses(){
                     title={course.title}
                     subtitle={course.subtitle}
                 />)}
-            
-            
+
+
             </Grid> : <Loader/>}
-            
+
 
             </Section>
 

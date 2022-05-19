@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import {Course, CourseFigure, CourseImage, CourseText} from "./SingleCourseStyle"
 
 const SingleCourse = ({

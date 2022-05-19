@@ -1,7 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.scss';
 
-
 //Pages
 import Home from "./pages/Home/Home";
 import Courses from "./pages/Courses/Courses";

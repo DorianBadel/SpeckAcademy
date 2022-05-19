@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import {
     Course,
     Figure,
@@ -17,7 +19,7 @@ const CourseCard = ({
     return (
         <Course to={`/course/${courseId}`}>
             <Figure>
-                <Image src={imgSrc} alt={imgAlt} />   
+                <Image src={imgSrc} alt={imgAlt} />
             </Figure>
             <Title>{title}</Title>
             <Subtitle>{subtitle}</Subtitle>

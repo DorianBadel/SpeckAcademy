@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import {
     Container,
     Input
@@ -12,5 +14,5 @@ const SearchBar = (
         </Container>
     );
   };
-  
+
   export default SearchBar;

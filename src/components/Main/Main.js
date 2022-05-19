@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import { Main as MainContainer} from './MainStyle';
 
 const Main = props => {

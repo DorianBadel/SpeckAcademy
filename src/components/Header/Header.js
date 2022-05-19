@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+
+//Styled
 import {
   Header as HeaderWrapper,
   HeaderInner,
@@ -10,7 +12,10 @@ import {
   ButtonLink,
 } from "./HeaderStyle";
 
+//Image
 import LogoImg from "../../assets/images/logo.svg"
+
+//Components
 import Button from "../Button/Button"
 
 

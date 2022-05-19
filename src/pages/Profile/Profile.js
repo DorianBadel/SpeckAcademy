@@ -1,11 +1,18 @@
 import React, {useState} from 'react'
+
+//Components
 import Main from '../../components/Main/Main'
 import Header from '../../components/Header/Header'
 import Section from '../../components/Section/Section'
-import {FormContainer, Strong, PasswordReset} from './ProfileStyle.js';
 import { Button } from '../../components/Button/ButtonStyle'
 
+//Style
+import {FormContainer, Strong, PasswordReset} from './ProfileStyle.js';
+
+//Lib
 import{ Form, Field, FormRow, InputLabel, Select, Option, ErrorMessage} from "../../lib/style/generalStyles"
+
+//Formik
 import {Formik /*, yupToFormErrors*/} from "formik";
 import * as Yup from "yup";
 

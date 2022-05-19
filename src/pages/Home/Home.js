@@ -4,23 +4,23 @@ import React, { useState, useEffect } from 'react';
 import Landing from '../../components/Landing/Landing';
 import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
-import Loader from '../../components/Loader/Loader';
-
 import CourseCard from '../../components/CourseCard/CourseCard';
 import Testimonial from '../../components/Testimonial/Testimonial';
 import Header from '../../components/Header/Header';
+import Loader from '../../components/Loader/Loader';
 
+//Lib
 import {Grid} from "../../lib/style/generalStyles";
 import coursesMock from '../../lib/style/mock/courses';
 
 
 function Home(){
-    const [courses, setCourses] = useState(null); 
-    
+    const [courses, setCourses] = useState(null);
+
     useEffect(() => {
-        
+
         setTimeout(() => {
-            
+
             setCourses(coursesMock);
 
         }, 1000)
@@ -30,7 +30,7 @@ function Home(){
     return(
         <Main>
             <Header/>
-            
+
             <section>
             <Landing/>
             </section>
@@ -41,12 +41,12 @@ function Home(){
             linkTo ={"/courses"}
             >
 
-                
+
 
                 {courses ?
                 <Grid>
                     {
-                    courses.map((course, index) => index <= 3 && 
+                    courses.map((course, index) => index <= 3 &&
                     <CourseCard
                         key = {course.id}
                         courseId = {course.id}

@@ -1,10 +1,15 @@
 import React from 'react'
+
+//Components
 import Main from '../../components/Main/Main'
 import Header from '../../components/Header/Header'
 import Section from '../../components/Section/Section'
 import { Button } from '../../components/Button/ButtonStyle'
 
+//Lib
 import{ Form, Field, FormRow, ErrorMessage} from "../../lib/style/generalStyles"
+
+//Formik
 import {Formik /*, yupToFormErrors*/} from "formik";
 import * as Yup from "yup";
 

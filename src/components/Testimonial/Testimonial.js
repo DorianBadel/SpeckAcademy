@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import {
     Testimonial as TestimonialContainer,
     TestimonialFigure,
@@ -8,6 +10,7 @@ import {
     TestimonialQuotation
   } from './TestimonialStyle';
 
+//Images
 import TestimonialImg from '../../assets/images/testimonial.jpg';
 
 const Testimonial = () => {

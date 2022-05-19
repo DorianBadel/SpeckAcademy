@@ -1,7 +1,8 @@
 import React from 'react'
-import "./Course.scss"
 import {useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom"
+
+//MockData
 import coursesMock from '../../lib/style/mock/courses';
 
 //Components
@@ -9,8 +10,6 @@ import Main from '../../components/Main/Main';
 import Section from '../../components/Section/Section';
 import SingleCourse from '../../components/SingleCourse/SingleCourse';
 import Header from '../../components/Header/Header';
-
-
 
 function Course(){
     const { id } = useParams();
@@ -53,11 +52,11 @@ function Course(){
                         imgAl={course.imgAlt}
                         text={course.text}
                     />
-    
+
                 </Section>
 
             )}
-            
+
 
         </Main>
     )

@@ -1,6 +1,7 @@
 import React from 'react';
-import './Landing.scss';
 import {Link} from 'react-router-dom';
+
+//Styled
 import {
   LandingInner,
   LandingImg as Img,
@@ -12,8 +13,10 @@ import {
   LandingTitle,
   LandingSubtitle
 } from  './LandingStyle';
+
 //Components
 import Button from '../Button/Button';
+
 //Images
 import LandingImg from '../../assets/images/landing.jpg';
 

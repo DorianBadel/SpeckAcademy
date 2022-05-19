@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Styled
 import {Button as ButtonStyled} from "./ButtonStyle"
 
 const Button = ({
@@ -11,6 +13,3 @@ const Button = ({
 };
 
 export default Button;
-
-
-//ES7+ React/Redux/React-Native snippets
