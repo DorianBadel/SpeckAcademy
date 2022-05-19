@@ -36,7 +36,7 @@ export const HeaderInner = styled.div`
 `;
 export const LogoLink = styled(Link)`
 
-    ${props => props.isHeaderActive == true &&`
+    ${props => props.isHeaderActive === true &&`
         display: block;
         padding: 5px;
         border-bottom: 5px solid ${colors.secondary};
@@ -63,7 +63,7 @@ export const Nav = styled.nav`
     display: none;
 
 
-    ${props => props.isMobile == true && `
+    ${props => props.isMobile === true && `
       display: flex;
       flex-direction: column;
 
@@ -117,14 +117,14 @@ export const HeaderNavLink = styled(NavLink)`
           text-shadow: 0.7px 0 0 ${colors.bgSecondary};
       }
 
-      ${props => props.isActive == true &&`
+      ${props => props.isActive === true &&`
           color: ${colors.secondary};
           border-style:  none none solid none ;
           border-color: th.$colorSecondary;
       `}
     }
 
-    ${props => props.isActive == true &&`
+    ${props => props.isActive === true &&`
         color: ${colors.primary};
         font-weight: 700;
     `}
@@ -143,7 +143,7 @@ export const ButtonLink = styled(Link)`
           }
         }
 
-      ${props => props.isActive == true &&`
+      ${props => props.isActive === true &&`
         & button{
           color: ${colors.primary};
           font-weight: 700;
@@ -160,7 +160,7 @@ export const ButtonLink = styled(Link)`
           margin-right: 0;
       }
 
-      ${props => props.isActive == true &&`
+      ${props => props.isActive === true &&`
         & button{
           filter: drop-shadow(0 7px 3px ${colors.black});
         }

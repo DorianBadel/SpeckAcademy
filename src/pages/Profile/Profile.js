@@ -6,13 +6,13 @@ import {FormContainer, Strong, PasswordReset} from './ProfileStyle.js';
 import { Button } from '../../components/Button/ButtonStyle'
 
 import{ Form, Field, FormRow, InputLabel, Select, Option, ErrorMessage} from "../../lib/style/generalStyles"
-import {Formik, yupToFormErrors} from "formik";
+import {Formik /*, yupToFormErrors*/} from "formik";
 import * as Yup from "yup";
 
 
 const Profile = () => {
     const [editing, setEditing] = useState(false);
-    var newValues;
+    const [formValues, setFormValues] = useState(null);
   return (
     <Main>
         <Header isSecondary={true}/>
@@ -22,8 +22,10 @@ const Profile = () => {
             callback={() => setEditing(!editing)}
         >
         <FormContainer>
-          <Formik initialValues={{
-            firstName: newValues ? newValues.firstName : 'Dorian', //nekako ne priznaje "newValues" kao globalnu varijablu
+          <Formik
+          enableReinitialize
+          initialValues={ formValues || {
+            firstName: 'Dorian',
             lastName: 'Badel',
             email: 'dbadel@foi.hr',
             githubUsername:'DorianBadel',
@@ -47,12 +49,10 @@ const Profile = () => {
             })
           } onSubmit={(values, actions) => {
             setTimeout(() => {
-              newValues = values;
-              console.log(newValues.firstName); //radi okej
               alert(JSON.stringify(values, null, 2));
               actions.setSubmitting(false);
               actions.resetForm({
-                firstName: newValues.firstName, //ovo se nikad ne izvrsava
+                firstName: '',
                 lastName: '',
                 email: '',
                 githubUsername:'',
@@ -61,6 +61,16 @@ const Profile = () => {
                 isAdmin: false
               })
             }, 1000)
+          }}
+
+          savedValues={{
+            firstName: 'Dorian', //nekako ne priznaje "newValues" kao globalnu varijablu
+            lastName: 'Badel',
+            email: 'dbadel@foi.hr',
+            githubUsername:'DorianBadel',
+            zepplinUsername:'DorianBadel',
+            activeFacultyYear:'3',
+            isAdmin: false
           }}>
 
             {formik => (
@@ -106,7 +116,7 @@ const Profile = () => {
                         </FormRow>
                         {editing &&
                           <FormRow>
-                            <Button isOutlined issForm disabled={formik.isSubmitting} type="submit">
+                            <Button isOutlined issForm disabled={formik.isSubmitting} onClick={() => setFormValues(formik.values) } type="submit">
                               {formik.isSubmitting ? "Processing..." : "Save changes" }
                             </Button>
                           </FormRow>

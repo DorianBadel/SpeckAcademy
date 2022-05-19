@@ -5,7 +5,7 @@ import Section from '../../components/Section/Section'
 import { Button } from '../../components/Button/ButtonStyle'
 
 import{ Form, Field, FormRow, Select, Option, ErrorMessage} from "../../lib/style/generalStyles"
-import {Formik, yupToFormErrors} from "formik";
+import {Formik /*, yupToFormErrors*/} from "formik";
 import * as Yup from "yup";
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import "./SingleCourse.scss"
+import {Course, CourseFigure, CourseImage, CourseText} from "./SingleCourseStyle"
 
 const SingleCourse = ({
     imgSrc,
@@ -7,15 +7,15 @@ const SingleCourse = ({
     text,
 }) => {
     return (
-        <div className="SingleCourse">
-            <figure className="SingleCourse-Figure">
-              <img className="SingleCourse-Image" src={imgSrc} alt={imgAlt}/>
-            </figure>
-            <p className="SingleCourse-Text">
+        <Course>
+            <CourseFigure>
+              <CourseImage src={imgSrc} alt={imgAlt}/>
+            </CourseFigure>
+            <CourseText>
                 {text}
-            </p>
+            </CourseText>
 
-        </div>
+        </Course>
     );
 }
 

@@ -6,7 +6,7 @@ export const FormContainer = styled.div`
     grid-template-columns: repeat(1, 1fr);
     row-gap: 48px;
 
-    ${props => props.isHideable == true && `
+    ${props => props.isHideable === true && `
             color: red;
     `}
 
@@ -39,7 +39,7 @@ export const PasswordReset = styled.div`
     height: 30%;
     font-family: ${fonts.secondary}
 
-    ${props => props.isOpened == true && `
+    ${props => props.isOpened === true && `
             width: auto;
             font-size: 20px; //zbog nekog razloga ako izbrisem font-size height vise ne radi ?
             height: 60%;
