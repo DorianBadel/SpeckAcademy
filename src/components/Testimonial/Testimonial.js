@@ -1,24 +1,34 @@
 import React from 'react';
-import './Testimonial.scss';
 
+//Styled
+import {
+    Testimonial as TestimonialContainer,
+    TestimonialFigure,
+    TestimonialImage,
+    TestimonialContent,
+    TestimonialText,
+    TestimonialQuotation
+  } from './TestimonialStyle';
+
+//Images
 import TestimonialImg from '../../assets/images/testimonial.jpg';
 
 const Testimonial = () => {
     return (
-        <div className="Testimonial">
-            <figure className="Testimonial-Figure">
-                <img src={TestimonialImg} alt="Testimonialka" className="Testimonial-Img" />
-            </figure>
-            <div className="Testimonial-Content">
-                <p className="Testimonial-Text">
-                    <span className="Testimonial-Quotation">"</span>
+        <TestimonialContainer>
+            <TestimonialFigure>
+                <TestimonialImage src={TestimonialImg} alt="Testimonialka" className="Testimonial-Img" />
+            </TestimonialFigure>
+            <TestimonialContent>
+                <TestimonialText>
+                    <TestimonialQuotation>"</TestimonialQuotation>
                     At the academy, I learned how to apply technology in practice.
                     Frontend education was demanding, it required a lot of time.
                     Upon completion, I got my first job as a developer.
-                    <span className="Testimonial-Quotation">"</span>
-                </p>
-            </div>
-        </div>
+                    <TestimonialQuotation>"</TestimonialQuotation>
+                </TestimonialText>
+            </TestimonialContent>
+        </TestimonialContainer>
     );
 }
 
